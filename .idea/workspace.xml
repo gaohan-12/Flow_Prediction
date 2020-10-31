@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3a131c0c-534c-45ef-bf47-dcd12ad390da" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ir6NjiW5ZL8eP20xTvAlxcTFuH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dataset" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\pycharm2019\PyCharm 2019.3.5\Flow_Pre\dataset" />
+      <recent name="D:\pycharm2019\PyCharm 2019.3.5\Flow_Pre" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\pycharm2019\PyCharm 2019.3.5\Flow_Pre\dataset" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="BiConvLSTM" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Flow_Pre" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BiConvLSTM.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.BiConvLSTM" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a131c0c-534c-45ef-bf47-dcd12ad390da" name="Default Changelist" comment="" />
+      <created>1602653325349</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602653325349</updated>
+      <workItem from="1602653329253" duration="18485000" />
+      <workItem from="1602726866770" duration="26807000" />
+      <workItem from="1602816626920" duration="1535000" />
+      <workItem from="1602830720679" duration="6271000" />
+      <workItem from="1602915395767" duration="1261000" />
+      <workItem from="1602999536679" duration="2186000" />
+      <workItem from="1603092669736" duration="1924000" />
+      <workItem from="1603194960752" duration="1854000" />
+      <workItem from="1603258086053" duration="3480000" />
+      <workItem from="1603522597837" duration="965000" />
+      <workItem from="1603795472316" duration="653000" />
+      <workItem from="1603845986364" duration="2414000" />
+      <workItem from="1603848727818" duration="10900000" />
+      <workItem from="1603943501875" duration="5462000" />
+      <workItem from="1604023296503" duration="14656000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="177" key="#Deployment" timestamp="1603944842543">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="177" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1603944842543" />
+    <state x="694" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603945093427">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="694" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603945093427" />
+    <state width="1876" height="277" key="GridCell.Tab.0.bottom" timestamp="1604062269617">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604062269617" />
+    <state width="1876" height="277" key="GridCell.Tab.0.center" timestamp="1604062269616">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604062269616" />
+    <state width="1876" height="277" key="GridCell.Tab.0.left" timestamp="1604062269616">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604062269616" />
+    <state width="1876" height="277" key="GridCell.Tab.0.right" timestamp="1604062269616">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604062269616" />
+    <state x="461" y="151" key="SettingsEditor" timestamp="1603845993198">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603845993198" />
+    <state x="859" y="249" width="436" height="541" key="ftp.server.browser" timestamp="1602767792818">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="859" y="249" width="436" height="541" key="ftp.server.browser/0.0.1920.1040@0.0.1920.1040" timestamp="1602767792818" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Flow_Pre$BiConvLSTM.coverage" NAME="BiConvLSTM Coverage Results" MODIFIED="1604038854870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
