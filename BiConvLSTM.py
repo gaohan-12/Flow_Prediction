@@ -164,6 +164,7 @@ class MyDataset(data.Dataset):
         self.path_dir = path_dir
         self.transform = transform
         self.images = os.listdir(self.path_dir)
+        self.images = sorted(self.images, key=lambda x: int(x[:-4]))
 
     def __getitem__(self, index):
 
