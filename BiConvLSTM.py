@@ -11,7 +11,7 @@ from torch.utils.data import DataLoader
 from torchvision.utils import save_image
 from datetime import datetime
 import torch.utils.data as data
-from PIL import Image
+from flowlib import read_flow, write_flow
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1, 2, 3"
 
@@ -163,39 +163,44 @@ class MyDataset(data.Dataset):
 
         self.path_dir = path_dir
         self.transform = transform
-        self.images = os.listdir(self.path_dir)
-        self.images = sorted(self.images, key=lambda x: int(x[:-4]))
+        self.flow = os.listdir(self.path_dir)
+        self.flow = sorted(self.flow, key=lambda x: int(x[:-4]))
 
     def __getitem__(self, index):
 
-        if index < len(self.images) - 1:
-            image_index = self.images[index]   # 根据索引获取图像文件名称
-            label_index = self.images[index+1]       # 根据索引获取标签名称
-            img_path = os.path.join(self.path_dir, image_index)  # 获取图像的路径或目录
+        if index < len(self.flow) - 1:
+            flow_index = self.flow[index]   # 根据索引获取光流文件名称
+            label_index = self.flow[index+1]       # 根据索引获取标签名称
+            flow_path = os.path.join(self.path_dir, flow_index)  # 获取光流的路径或目录
             label_path = os.path.join(self.path_dir, label_index)    # 获取标签的路径或目录
-            img = Image.open(img_path).convert('RGB')   # 读取图像
-            label = Image.open(label_path).convert('RGB')   # 读取标签
+            flow = read_flow(flow_path)   # 读取光流
+            label = read_flow(label_path)   # 读取标签
 
         else:
-            image_index = self.images[index]
-            img_path = os.path.join(self.path_dir, image_index)
-            img = Image.open(img_path)
-            label = img
+            flow_index = self.flow[index]
+            flow_path = os.path.join(self.path_dir, flow_index)
+            flow = read_flow(flow_path,)
+            label = flow
 
-        if self.transform is not None:
-            img = self.transform(img)
-            label = self.transform(label)
+        # if self.transform is not None:
+        #     flow = self.transform(flow)
+        #     label = self.transform(label)
 
-        return img, label
+        return flow, label
 
     def __len__(self):
-        return len(self.images)
+        return len(self.flow)
 
 
 data_transform = transforms.Compose([transforms.ToTensor()])
 data_root = os.path.abspath(os.path.join(os.getcwd())) + "/dataset/"
 
-model = BiConvLSTM(input_size=(240, 320), input_dim=3, hidden_dim=3, kernel_size=(3, 3), num_layers=1)
+flow_test = read_flow(data_root + "/train/1/0.flo")
+print(flow_test.shape)
+(height, width, channel) = flow_test.shape
+
+
+model = BiConvLSTM(input_size=(height, width), input_dim=channel, hidden_dim=channel, kernel_size=(3, 3), num_layers=1)
 # model.to(device)
 
 epoch_size = 16
@@ -210,7 +215,7 @@ def train(self):
 
     for epoch in range(epoch_size):
 
-        for i in range(13):
+        for i in range(1, 13):
 
             train_path_i = data_root + "/train/" + str(i) + "/"
             train_dataset_i = MyDataset(train_path_i, transform=data_transform)
@@ -225,10 +230,8 @@ def train(self):
                 ref_tensor = Var(data[1])
                 # print(ref_tensor.shape)
 
-                input_tensor = input_tensor.reshape(1, 1, 3, 240, 320)
-                ref_tensor = ref_tensor.reshape(1, 1, 3, 240, 320)
-                # save_image(input_tensor.reshape(3, 436, 1024), './in/epoch' + str(epoch) + 'step' + str(step) + '.png')
-                # save_image(ref_tensor.reshape(3, 436, 1024), './ref/epoch' + str(epoch) + 'step' + str(step) + '.png')
+                input_tensor = input_tensor.reshape(1, 1, channel, height, width)
+                ref_tensor = ref_tensor.reshape(1, 1, channel, height, width)
 
                 output = model(input_tensor).cuda()
                 # print(output.shape)
@@ -241,10 +244,10 @@ def train(self):
                     print(datetime.now().strftime('%c'), 'train:', epoch, step, 'loss:', loss)
 
                 if epoch > epoch_size - 2:
-                    if os.path.exists("./train_results/" + str(epoch) + "/" + str(i) + "/") is False:
-                        os.makedirs('train_results/' + str(epoch) + '/' + str(i) + '/')
+                    if os.path.exists("./train_results_flow/" + str(epoch) + "/" + str(i) + "/") is False:
+                        os.makedirs('train_results_flow/' + str(epoch) + '/' + str(i) + '/')
 
-                    save_image(output.reshape(3, 240, 320), "./train_results/" + str(epoch) + '/' + str(i) + '/' + str(step) + '.png')
+                    write_flow(output.reshape(height, width, channel), "./train_results_flow/" + str(epoch) + '/' + str(i) + '/' + str(step) + '.flo')
 
     torch.save(model, 'model.pth')
 
@@ -262,8 +265,8 @@ def val(self):
             input_tensor = Var(data[0])
             ref_tensor = Var(data[1])
 
-            input_tensor = input_tensor.reshape(1, 1, 3, 240, 320)
-            ref_tensor = ref_tensor.reshape(1, 1, 3, 240, 320)
+            input_tensor = input_tensor.reshape(1, 1, channel, height, width)
+            ref_tensor = ref_tensor.reshape(1, 1, channel, height, width)
 
             output = model(input_tensor).cuda()
             loss = criterion(output, ref_tensor)
@@ -271,10 +274,10 @@ def val(self):
             if step % 20 == 0:
                 print(datetime.now().strftime('%c'), 'val:', step, 'loss:', loss)
 
-            if os.path.exists("./val_results/" + str(j) + "/") is False:
-                os.makedirs('val_results/' + str(j) + '/')
+            if os.path.exists("./val_results_flow/" + str(j) + "/") is False:
+                os.makedirs('val_results_flow/' + str(j) + '/')
 
-            save_image(output.reshape(3, 240, 320), "./val_results/" + str(j) + '/' + str(step) + '.png')
+            write_flow(output.reshape(height, width, channel), "./val_results_flow/" + str(j) + '/' + str(step) + '.flo')
 
 
 if __name__ == "__main__":
